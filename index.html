@@ -235,23 +235,17 @@ body.cliente-mode .cliente-only{display:block!important}
 .bm-sector{font-size:8px;color:#2a2a2a;font-family:'Montserrat',sans-serif}
 .bm-empresa{font-weight:700;font-family:'Montserrat',sans-serif;font-size:11px}
 
-/* PDF Print overrides */
-@media print{
-  .no-print{display:none!important}
-  .pdf-cover{display:block!important}
-}
-.pdf-cover{display:none}
+/* PDF Cover — siempre oculta en pantalla, solo visible al imprimir */
+.pdf-cover{display:none!important}
 
 @media print{
-  .sidebar,.top-actions,.api-banner,.toggle-btn,.ai-actions,.btn-calc,.asst-panel,.asst-toggle,.analista-only,.no-print{display:none!important}
+  .pdf-cover{display:flex!important;flex-direction:column;}
+  .sidebar,.top,.top-actions,.api-banner,.toggle-btn,.ai-actions,.btn-calc,.asst-panel,.asst-toggle,.analista-only,.no-print,.body{display:none!important}
   .cliente-only{display:block!important}
-  body{background:#070707;color:#e2e0da}
-  .cfa{height:auto;background:#070707}
-  .body,.main-wrap{display:block}
-  .main{overflow:visible;margin-right:0!important;background:#070707}
+  body,html{background:#070707!important;color:#e2e0da!important}
+  .cfa,.main-wrap,.main{height:auto!important;overflow:visible!important;background:#070707!important}
   .card,.ai-section,.exec-summary{break-inside:avoid}
-  #pdf-cover{display:flex!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  * {-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
 }
 </style>
 </head>
@@ -475,7 +469,7 @@ body.cliente-mode .cliente-only{display:block!important}
 </button>
 
 <!-- PDF COVER PAGE (v4) -->
-<div id="pdf-cover" class="pdf-cover" style="page-break-after:always;padding:0;font-family:'Montserrat',sans-serif;background:#070707;min-height:100vh;display:flex;flex-direction:column;">
+<div id="pdf-cover" class="pdf-cover" style="page-break-after:always;padding:0;font-family:'Montserrat',sans-serif;background:#070707;min-height:100vh;flex-direction:column;">
   <!-- Header stripe -->
   <div style="background:#0b0b0b;border-bottom:1px solid #1c1c1c;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;">
     <div style="display:flex;align-items:center;gap:12px;">
