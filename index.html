@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fyntrum — Corporate Financial Analyzer v3</title>
+<title>Fyntrum — Corporate Financial Analyzer v4</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
 <style>
@@ -198,18 +198,60 @@ body.cliente-mode .cliente-only{display:block!important}
 .asst-toggle.hidden{display:none}
 .asst-toggle span{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:0.1em;text-transform:uppercase}
 
+/* ── V4 NEW STYLES ───────────────────────── */
+.wacc-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.25);border-radius:10px;padding:2px 9px;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;color:#F97316;letter-spacing:0.06em}
+.eva-big{font-size:28px;font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:-1px;margin-bottom:4px}
+.niif-card{background:#0f0f0f;border-radius:5px;padding:10px 13px;margin-bottom:6px;display:flex;align-items:flex-start;gap:10px}
+.niif-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.niif-body{}
+.niif-norm{font-size:8px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;font-family:'Montserrat',sans-serif;margin-bottom:2px}
+.niif-desc{font-size:10px;color:#555;line-height:1.55}
+.niif-status{font-size:8px;font-weight:700;font-family:'Montserrat',sans-serif;margin-top:3px;text-transform:uppercase;letter-spacing:0.06em}
+.dcf-yr-row{display:grid;grid-template-columns:60px 1fr 1fr 1fr;gap:0;padding:6px 10px;border-bottom:1px solid #131313;font-size:11px;align-items:center}
+.dcf-yr-row:last-child{border-bottom:none}
+.dcf-hdr{background:#0d0d0d;font-size:8px;font-weight:700;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:0.1em;color:#333;padding:5px 10px;border-radius:4px 4px 0 0}
+.dcf-body{background:#0f0f0f;border-radius:0 0 4px 4px;border:1px solid #1a1a1a}
+.wacc-breakdown{background:#0f0f0f;border:1px solid #1a1a1a;border-radius:5px;padding:12px}
+.wb-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid #131313;font-size:11px}
+.wb-row:last-child{border-bottom:none}
+.wb-lbl{color:#444}
+.wb-val{font-weight:700;font-family:'Montserrat',sans-serif}
+.capm-eq{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:5px;padding:12px;font-family:'Courier New',monospace;font-size:11px;color:#666;line-height:2;text-align:center}
+.capm-eq span{color:#F97316;font-weight:700}
+.roic-ring{position:relative;display:inline-flex;align-items:center;justify-content:center;flex-direction:column}
+.v4-tag{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:3px;padding:1px 6px;font-size:7px;font-weight:700;font-family:'Montserrat',sans-serif;color:#F97316;letter-spacing:0.08em;text-transform:uppercase;margin-left:6px}
+
+/* ── CHARTS & BENCHMARK & PDF (v4 pt2) ──── */
+.chart-wrap{position:relative;height:220px;margin-top:10px}
+.chart-wrap-sm{position:relative;height:160px;margin-top:8px}
+.bm-full{background:#0f0f0f;border:1px solid #1a1a1a;border-radius:5px;overflow:hidden}
+.bm-full-hdr{display:grid;grid-template-columns:160px 1fr 60px 60px 60px;padding:6px 12px;background:#0d0d0d;font-size:7px;font-weight:700;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:0.1em;color:#2a2a2a;gap:0}
+.bm-full-row{display:grid;grid-template-columns:160px 1fr 60px 60px 60px;padding:8px 12px;border-bottom:1px solid #131313;align-items:center;gap:0;font-size:11px}
+.bm-full-row:last-child{border-bottom:none}
+.bm-lbl{color:#555;font-size:10px}
+.bm-bar-wrap{position:relative;height:6px;background:#161616;border-radius:3px;overflow:visible;margin:0 12px}
+.bm-bar-range{position:absolute;height:100%;border-radius:3px;background:#1E3A5F}
+.bm-bar-val{position:absolute;top:-3px;width:12px;height:12px;border-radius:50%;transform:translateX(-50%);border:2px solid #0b0b0b}
+.bm-sector{font-size:8px;color:#2a2a2a;font-family:'Montserrat',sans-serif}
+.bm-empresa{font-weight:700;font-family:'Montserrat',sans-serif;font-size:11px}
+
+/* PDF Print overrides */
 @media print{
-  .sidebar,.top-actions,.api-banner,.toggle-btn,.ai-actions,.btn-calc,.asst-panel,.asst-toggle,.analista-only{display:none!important}
+  .no-print{display:none!important}
+  .pdf-cover{display:block!important}
+}
+.pdf-cover{display:none}
+
+@media print{
+  .sidebar,.top-actions,.api-banner,.toggle-btn,.ai-actions,.btn-calc,.asst-panel,.asst-toggle,.analista-only,.no-print{display:none!important}
   .cliente-only{display:block!important}
-  body{background:#fff;color:#000}
-  .cfa{height:auto}
+  body{background:#070707;color:#e2e0da}
+  .cfa{height:auto;background:#070707}
   .body,.main-wrap{display:block}
-  .main{overflow:visible;margin-right:0!important}
-  .card,.ai-section,.exec-summary{border:1px solid #ddd;background:#fff;break-inside:avoid}
-  .mc,.exec-num,.alert-item-red,.alert-item-green{background:#f9f9f9;border-color:#ddd}
-  .mc-desc,.mc-name,.sb-lbl,.exec-grade{color:#333}
-  .er-table td{color:#333}
-  .ai-text{color:#333;font-style:normal}
+  .main{overflow:visible;margin-right:0!important;background:#070707}
+  .card,.ai-section,.exec-summary{break-inside:avoid}
+  #pdf-cover{display:flex!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  * {-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
 </style>
 </head>
@@ -223,12 +265,12 @@ body.cliente-mode .cliente-only{display:block!important}
         <div class="logo-tag">Inteligencia en Inversiones</div>
       </div>
     </div>
-    <div class="top-center">Corporate Financial Analyzer</div>
+    <div class="top-center">Corporate Financial Analyzer <span style="color:#F97316;font-size:8px;font-weight:700;border:1px solid rgba(249,115,22,0.3);padding:2px 7px;border-radius:10px;letter-spacing:0.1em">v4.0</span></div>
     <div class="top-actions">
       <button class="btn-client" id="client-btn" onclick="toggleClientMode()"><i class="ti ti-user"></i>Modo Cliente</button>
       <button class="btn-sm" onclick="exportData()"><i class="ti ti-download"></i>Exportar</button>
       <label class="btn-sm" style="cursor:pointer"><i class="ti ti-upload"></i>Cargar<input type="file" accept=".json" style="display:none" onchange="importData(event)"></label>
-      <button class="btn-orange" onclick="window.print()"><i class="ti ti-printer"></i>Imprimir PDF</button>
+      <button class="btn-orange no-print" onclick="printPDF()"><i class="ti ti-printer"></i>Imprimir PDF</button>
     </div>
   </div>
 
@@ -247,6 +289,10 @@ body.cliente-mode .cliente-only{display:block!important}
         <div class="nav-item" id="nav-cfo" onclick="setService('cfo')">
           <div class="nav-row"><div class="nav-dot" id="dot-cfo"></div><span class="nav-name" id="ntxt-cfo">CFO Externo</span></div>
           <div class="nav-price">$500/mes</div>
+        </div>
+        <div class="nav-item" id="nav-valuation" onclick="setService('valuation')">
+          <div class="nav-row"><div class="nav-dot" id="dot-valuation"></div><span class="nav-name" id="ntxt-valuation">Valoración Empresa <span class="v4-tag">NEW</span></span></div>
+          <div class="nav-price">desde $600</div>
         </div>
       </div>
       <div class="sb-div"></div>
@@ -281,7 +327,7 @@ body.cliente-mode .cliente-only{display:block!important}
         <div id="hist-list" class="sb-hist-empty">Sin análisis guardados</div>
       </div>
       <div class="sb-foot">
-        <div class="sb-foot-txt">Fyntrum · Inteligencia en Inversiones<br><span>v3.0 — Herramienta interna</span></div>
+        <div class="sb-foot-txt">Fyntrum · Inteligencia en Inversiones<br><span>v4.0 — Herramienta interna</span></div>
       </div>
     </div>
 
@@ -337,6 +383,31 @@ body.cliente-mode .cliente-only{display:block!important}
                 <div class="ifield"><label>CV Ant. ($)</label><input id="pv_cv" type="number" value="0"></div>
                 <div class="ifield"><label>CF Ant. ($)</label><input id="pv_cf" type="number" value="0"></div>
                 <div class="ifield"><label>UAII Ant. ($)</label><input id="pv_uaii" type="number" value="0"></div>
+              </div>
+            </div>
+            <!-- WACC / CAPM / DCF SECTION (v4) -->
+            <div id="wacc-section" style="display:none">
+              <div style="height:1px;background:#161616;margin:10px 0"></div>
+              <div class="sub-lbl" style="color:#F97316">⬡ WACC &amp; CAPM — Costo de Capital</div>
+              <div class="ig4" style="margin-bottom:9px">
+                <div class="ifield"><label>Tasa Libre Riesgo Rf (%)</label><input id="rf" type="number" value="4.5" step="0.1"></div>
+                <div class="ifield"><label>Beta (β) del Sector</label><input id="beta" type="number" value="1.00" step="0.05"></div>
+                <div class="ifield"><label>Rendimiento Mercado Rm (%)</label><input id="rm" type="number" value="12.0" step="0.1"></div>
+                <div class="ifield"><label>Costo Deuda Kd (%)</label><input id="kd_input" type="number" value="10.0" step="0.1"></div>
+              </div>
+              <div style="height:1px;background:#161616;margin:10px 0"></div>
+              <div class="sub-lbl" style="color:#F97316">◈ DCF — Flujos de Caja Libres Proyectados</div>
+              <div class="ig4" style="margin-bottom:9px">
+                <div class="ifield"><label>FCF Año 1 ($)</label><input id="fcf1" type="number" value="0"></div>
+                <div class="ifield"><label>FCF Año 2 ($)</label><input id="fcf2" type="number" value="0"></div>
+                <div class="ifield"><label>FCF Año 3 ($)</label><input id="fcf3" type="number" value="0"></div>
+                <div class="ifield"><label>FCF Año 4 ($)</label><input id="fcf4" type="number" value="0"></div>
+              </div>
+              <div class="ig4">
+                <div class="ifield"><label>FCF Año 5 ($)</label><input id="fcf5" type="number" value="0"></div>
+                <div class="ifield"><label>Crecimiento Perpetuo g (%)</label><input id="gperp" type="number" value="3.0" step="0.1"></div>
+                <div class="ifield"><label>Capital Invertido ($)</label><input id="capinv" type="number" value="0" placeholder="Activos operativos"></div>
+                <div class="ifield"><label>N° Acciones en circulación</label><input id="acc_val" type="number" value="1000"></div>
               </div>
             </div>
             <div style="display:flex;justify-content:flex-end;margin-top:12px">
@@ -403,10 +474,109 @@ body.cliente-mode .cliente-only{display:block!important}
   <span>Asistente IA</span>
 </button>
 
+<!-- PDF COVER PAGE (v4) -->
+<div id="pdf-cover" class="pdf-cover" style="page-break-after:always;padding:0;font-family:'Montserrat',sans-serif;background:#070707;min-height:100vh;display:flex;flex-direction:column;">
+  <!-- Header stripe -->
+  <div style="background:#0b0b0b;border-bottom:1px solid #1c1c1c;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:36px;height:36px;background:linear-gradient(135deg,#F97316,#1E3A5F);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;flex-shrink:0;">F</div>
+      <div>
+        <div style="font-size:17px;font-weight:800;color:#e2e0da;letter-spacing:0.04em;"><span style="color:#F97316;">FYN</span>TRUM</div>
+        <div style="font-size:8px;color:#2a2a2a;letter-spacing:0.14em;text-transform:uppercase;margin-top:1px;">Inteligencia en Inversiones</div>
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:8px;color:#333;text-transform:uppercase;letter-spacing:0.14em;font-family:'Montserrat',sans-serif;font-weight:700;">Corporate Financial Analyzer</div>
+      <div style="font-size:8px;color:#F97316;font-weight:700;letter-spacing:0.1em;margin-top:2px;">v4.0</div>
+    </div>
+  </div>
+
+  <!-- Orange accent bar -->
+  <div style="height:3px;background:linear-gradient(90deg,#F97316,#1E3A5F,#070707);"></div>
+
+  <!-- Main body -->
+  <div style="flex:1;padding:40px;display:flex;flex-direction:column;gap:28px;">
+
+    <!-- Title block -->
+    <div style="border-left:3px solid #F97316;padding-left:18px;">
+      <div style="font-size:8px;color:#F97316;text-transform:uppercase;letter-spacing:0.18em;font-weight:700;margin-bottom:10px;">Informe Financiero Ejecutivo</div>
+      <div id="pdf-empresa" style="font-size:38px;font-weight:800;color:#e2e0da;letter-spacing:-1px;margin-bottom:10px;">—</div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="font-size:10px;color:#444;">Período: <span id="pdf-periodo" style="font-weight:700;color:#888;">—</span></div>
+        <div style="font-size:10px;color:#444;">Sector: <span id="pdf-sector" style="font-weight:700;color:#888;">—</span></div>
+        <div style="font-size:10px;color:#444;">Servicio: <span id="pdf-svc" style="font-weight:700;color:#F97316;">—</span></div>
+      </div>
+    </div>
+
+    <!-- KPI cards row 1 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-top:2px solid #F97316;border-radius:6px;padding:14px;">
+        <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.14em;color:#333;font-weight:700;margin-bottom:8px;">Ventas</div>
+        <div id="pdf-ventas" style="font-size:24px;font-weight:800;color:#e2e0da;letter-spacing:-0.5px;">—</div>
+      </div>
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-top:2px solid #1E3A5F;border-radius:6px;padding:14px;">
+        <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.14em;color:#333;font-weight:700;margin-bottom:8px;">UAII</div>
+        <div id="pdf-uaii" style="font-size:24px;font-weight:800;color:#F97316;letter-spacing:-0.5px;">—</div>
+      </div>
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-top:2px solid #16a34a;border-radius:6px;padding:14px;">
+        <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.14em;color:#333;font-weight:700;margin-bottom:8px;">Utilidad Neta</div>
+        <div id="pdf-un" style="font-size:24px;font-weight:800;color:#16a34a;letter-spacing:-0.5px;">—</div>
+      </div>
+    </div>
+
+    <!-- KPI cards row 2: WACC + EVA -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-left:3px solid #F97316;border-radius:6px;padding:16px;display:flex;align-items:center;gap:14px;">
+        <div style="width:42px;height:42px;border-radius:50%;border:2px solid #F97316;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="font-size:9px;font-weight:700;color:#F97316;">%</span>
+        </div>
+        <div>
+          <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.12em;color:#555;font-weight:700;margin-bottom:4px;">WACC Calculado</div>
+          <div id="pdf-wacc" style="font-size:26px;font-weight:800;color:#F97316;letter-spacing:-1px;">—</div>
+          <div style="font-size:8px;color:#2a2a2a;margin-top:2px;">Costo de capital ponderado</div>
+        </div>
+      </div>
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-left:3px solid #16a34a;border-radius:6px;padding:16px;display:flex;align-items:center;gap:14px;">
+        <div style="width:42px;height:42px;border-radius:50%;border:2px solid #16a34a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="font-size:9px;font-weight:700;color:#16a34a;">EVA</span>
+        </div>
+        <div>
+          <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.12em;color:#555;font-weight:700;margin-bottom:4px;">Valor Económico Agregado</div>
+          <div id="pdf-eva" style="font-size:26px;font-weight:800;color:#16a34a;letter-spacing:-1px;">—</div>
+          <div style="font-size:8px;color:#2a2a2a;margin-top:2px;">Creación de valor real</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score block -->
+    <div style="background:#0f0f0f;border:1px solid #1c1c1c;border-radius:6px;padding:18px;display:flex;align-items:center;gap:20px;">
+      <div style="text-align:center;flex-shrink:0;">
+        <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.12em;color:#333;font-weight:700;margin-bottom:6px;">Score Financiero</div>
+        <div id="pdf-score" style="font-size:44px;font-weight:800;color:#F97316;letter-spacing:-2px;line-height:1;">—</div>
+      </div>
+      <div style="width:1px;background:#1c1c1c;align-self:stretch;"></div>
+      <div>
+        <div style="font-size:7px;text-transform:uppercase;letter-spacing:0.12em;color:#333;font-weight:700;margin-bottom:6px;">Calificación General</div>
+        <div id="pdf-grade" style="font-size:22px;font-weight:700;color:#e2e0da;">—</div>
+        <div style="font-size:9px;color:#2a2a2a;margin-top:4px;">Evaluación integral de salud financiera · Fyntrum v4.0</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="background:#0b0b0b;border-top:1px solid #1c1c1c;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-size:8px;color:#2a2a2a;">Preparado por: <span id="pdf-analista" style="color:#555;font-weight:700;">Fyntrum</span></div>
+    <div id="pdf-fecha" style="font-size:8px;color:#2a2a2a;">—</div>
+    <div style="font-size:8px;color:#1e1e1e;">Fyntrum · Documento confidencial · Uso interno</div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 'use strict';
 let svc='credit',gd=null,inputsOpen=true,histData=[],pieChart=null,barChart=null;
+let trendChart=null,radarChart=null,bmChart=null;
 let asstOpen=false,chatHistory=[],isTyping=false,clientMode=false;
 
 // ── SECTOR BENCHMARKS Ecuador PYMEs ──────────────────────────
@@ -539,9 +709,9 @@ function er_row(lbl,val,cls=''){
   return`<tr class="${cls}"><td style="color:${cls?'#999':'#444'};font-weight:${cls?700:400}">${lbl}</td><td style="color:${fc}">$${val}</td></tr>`;
 }
 function aiBlock(type){
-  const L={credit:'Informe de Viabilidad Crediticia',consult:'Informe Ejecutivo de Consultoría',cfo:'Informe CFO Mensual'};
+  const L={credit:'Informe de Viabilidad Crediticia',consult:'Informe Ejecutivo de Consultoría',cfo:'Informe CFO Mensual',valuation:'Informe de Valoración de Empresa'};
   return`<div class="ai-section">
-    <div class="ai-hdr"><div class="ai-pulse"></div><span class="ai-title">${L[type]} — Informe IA · Haiku 4.5</span></div>
+    <div class="ai-hdr"><div class="ai-pulse"></div><span class="ai-title">${L[type]||L.consult} — Informe IA · Haiku 4.5</span></div>
     <div class="ai-text" id="ai-${type}">Presiona el botón para generar el informe narrativo...</div>
     <div class="ai-actions analista-only">
       <button class="btn-ghost" id="ai-btn-${type}" onclick="genAI('${type}')"><i class="ti ti-sparkles"></i>Generar Informe</button>
@@ -552,15 +722,20 @@ function aiBlock(type){
 
 function setService(s){
   svc=s;
-  ['credit','consult','cfo'].forEach(id=>{
+  ['credit','consult','cfo','valuation'].forEach(id=>{
     const a=id===s;
-    document.getElementById('nav-'+id).classList.toggle('active',a);
-    document.getElementById('dot-'+id).style.cssText=a?'background:#F97316;box-shadow:0 0 5px rgba(249,115,22,0.5)':'background:#252525';
-    document.getElementById('ntxt-'+id).style.color=a?'#e2e0da':'#3a3a3a';
+    const navEl=document.getElementById('nav-'+id);
+    if(!navEl)return;
+    navEl.classList.toggle('active',a);
+    const dotEl=document.getElementById('dot-'+id);
+    if(dotEl)dotEl.style.cssText=a?'background:#F97316;box-shadow:0 0 5px rgba(249,115,22,0.5)':'background:#252525';
+    const txtEl=document.getElementById('ntxt-'+id);
+    if(txtEl)txtEl.style.color=a?'#e2e0da':'#3a3a3a';
   });
   document.getElementById('cred-section').style.display=s==='credit'?'block':'none';
   document.getElementById('cfo-section').style.display=s==='cfo'?'block':'none';
   document.getElementById('bal-section').style.display=s!=='credit'?'block':'none';
+  document.getElementById('wacc-section').style.display=(s==='consult'||s==='valuation')?'block':'none';
 }
 
 function toggleInputs(){
@@ -607,9 +782,54 @@ function calcular(){
   const dscr=cuota?uaii/cuota:null;
   const pvV=n(document.getElementById('pv_ventas').value);
   const pvUAII=n(document.getElementById('pv_uaii').value);
+  const pvCV=n(document.getElementById('pv_cv').value);
+  const pvCF=n(document.getElementById('pv_cf').value);
+  const pvMC=pvV-pvCV;
+  const pvMcPct=pvV>0?pvMC/pvV:0;
+  const pvRentOp=pvV>0&&pvUAII>0?pvUAII/pvV:0;
   const empresa=document.getElementById('empresa').value||'Empresa';
   const periodo=document.getElementById('periodo').value||'—';
-  gd={v,cv,cf,int,tasa,dp,deprec,acc,activos,patrimonio,actcorr,pascorr,mc,uaii,uai,imp,udi,un,upa,ebitda,gao,gaf,gat,rentOp,rentNeta,mcPct,roa,roe,rc,ende,covInt,pe,dscr,cuota,credM,credT,credP,pvV,pvUAII,empresa,periodo};
+
+  // ── WACC & CAPM (v4) ─────────────────────────────────────────
+  const rf=n(document.getElementById('rf').value)/100;
+  const beta=n(document.getElementById('beta').value)||1;
+  const rm=n(document.getElementById('rm').value)/100;
+  const kdPct=n(document.getElementById('kd_input').value)/100;
+  const ke=rf+beta*(rm-rf); // CAPM
+  const D=activos>0&&patrimonio>=0?(activos-patrimonio):0;
+  const E=patrimonio>0?patrimonio:0;
+  const TV=D+E;
+  const wacc=TV>0?(ke*(E/TV)+kdPct*(1-tasa)*(D/TV)):ke>0?ke:0;
+  const primaMercado=rm-rf;
+
+  // ── EVA (v4) ─────────────────────────────────────────────────
+  const nopat=uaii*(1-tasa);
+  const capInvRaw=n(document.getElementById('capinv').value);
+  const capInv=capInvRaw>0?capInvRaw:(activos>0?activos:0);
+  const eva=capInv>0&&wacc>0?nopat-wacc*capInv:null;
+  const roic=capInv>0?nopat/capInv:null;
+  const vspreading=roic!==null&&wacc>0?roic-wacc:null;
+
+  // ── DCF (v4) ─────────────────────────────────────────────────
+  const fcfs=[1,2,3,4,5].map(i=>n(document.getElementById('fcf'+i).value));
+  const gperp=n(document.getElementById('gperp').value)/100;
+  const accVal=n(document.getElementById('acc_val').value)||1;
+  let dcfPV=0,dcfTV=0,dcfTotal=0,dcfPerAccion=0;
+  const dcfPVs=[];
+  if(wacc>0&&fcfs.some(f=>f!==0)){
+    fcfs.forEach((f,i)=>{const pv=f/Math.pow(1+wacc,i+1);dcfPVs.push(pv);dcfPV+=pv;});
+    if(wacc>gperp&&fcfs[4]!==0){dcfTV=fcfs[4]*(1+gperp)/(wacc-gperp)/Math.pow(1+wacc,5);}
+    dcfTotal=dcfPV+dcfTV;
+    dcfPerAccion=accVal>0?dcfTotal/accVal:0;
+  }
+
+  // ── NIIF Checks (v4) ─────────────────────────────────────────
+  const niifAlerts=buildNiifAlerts({v,uaii,un,activos,patrimonio,deprec,tasa,rc,ende,roa,roe,int,ebitda,wacc,eva});
+
+  gd={v,cv,cf,int,tasa,dp,deprec,acc,activos,patrimonio,actcorr,pascorr,mc,uaii,uai,imp,udi,un,upa,ebitda,gao,gaf,gat,rentOp,rentNeta,mcPct,roa,roe,rc,ende,covInt,pe,dscr,cuota,credM,credT,credP,pvV,pvUAII,pvCV,pvCF,pvMC,pvMcPct,pvRentOp,empresa,periodo,
+    // v4 additions
+    rf,beta,rm,kdPct,ke,wacc,primaMercado,D,E,TV,nopat,capInv,eva,roic,vspreading,
+    fcfs,fcfPVs:dcfPVs,dcfPV,dcfTV,dcfTotal,dcfPerAccion,gperp,accVal,niifAlerts};
   render();
   autoInterpret();
 }
@@ -619,6 +839,7 @@ function render(){
   const el=document.getElementById('results-area');
   if(svc==='credit')renderCredit(el);
   else if(svc==='consult')renderConsult(el);
+  else if(svc==='valuation')renderValuation(el);
   else renderCFO(el);
 }
 
@@ -708,7 +929,14 @@ function renderConsult(el){
     </div>
     <button onclick="calcScenarios()" class="btn-ghost" style="margin-bottom:10px"><i class="ti ti-calculator"></i>Proyectar</button>
     <div id="sc-results"></div>
-  </div>${aiBlock('consult')}`;
+  </div>
+  ${trendChartsBlock(d)}
+  ${bmFullPanel(d)}
+  ${d.wacc>0?`<div class="card analista-only">${sec('ti-percentage','WACC & CAPM — Costo de Capital')}${waccBlock(d)}</div>`:''}
+  ${d.eva!==null?`<div class="card analista-only">${sec('ti-diamond','EVA — Valor Económico Agregado')}${evaBlock(d)}</div>`:''}
+  ${niifBlock(d)}
+  ${aiBlock('consult')}`;
+  renderTrendCharts(d);
   setTimeout(()=>{
     const c=document.getElementById('pie-c');
     if(c&&typeof Chart!=='undefined'){if(pieChart){pieChart.destroy();pieChart=null;}
@@ -738,6 +966,8 @@ function renderCFO(el){
   <div class="card analista-only">${sec('ti-traffic-lights','Semáforo de KPIs — '+d.empresa+' ('+d.periodo+')')}
     <div class="kpi-grid">${kpis.map(k=>`<div class="kpi-row"><div class="kpi-l"><div class="kpi-light" style="background:${k.sg.c};box-shadow:0 0 5px ${k.sg.c}44"></div><span class="kpi-n">${k.n}</span></div><div class="kpi-r"><span class="kpi-v" style="color:${k.sg.c}">${k.v}</span><span class="kpi-s">${k.sg.s} ${k.sg.l}</span></div></div>`).join('')}</div>
   </div>${compHtml}
+  ${trendChartsBlock(d)}
+  ${bmFullPanel(d)}
   <div class="card analista-only">${sec('ti-chart-dots','Apalancamiento Detallado')}
     <div class="mg3">
       ${mc_html('GAO — Riesgo Operativo',d.gao.toFixed(2)+'x',sig(d.gao,1.5,2.5,true),'<b>Por cada 1% de cambio en ventas, la UAII varía</b> '+d.gao.toFixed(2)+'%.','gao',true,d.gao)}
@@ -745,6 +975,7 @@ function renderCFO(el){
       ${mc_html('GAT — Riesgo Total',d.gat.toFixed(2)+'x',sig(d.gat,2.0,3.0,true),'<b>Por cada 1% de cambio en ventas, la utilidad neta varía</b> '+d.gat.toFixed(2)+'%.','gat',true,d.gat)}
     </div>
   </div>${aiBlock('cfo')}`;
+  renderTrendCharts(d);
   if(hasPrev)setTimeout(()=>{
     const c=document.getElementById('bar-c');
     if(c&&typeof Chart!=='undefined'){if(barChart){barChart.destroy();barChart=null;}
@@ -781,6 +1012,291 @@ function calcScenarios(){
   </div>`;
 }
 
+// ── BENCHMARKING FULL PANEL (v4 pt2) ─────────────────────────
+function bmFullPanel(d){
+  const s=getSector();const b=BM[s];if(!b)return'';
+  const metrics=[
+    {key:'mcPct',lbl:'Margen Contribución',val:d.mcPct,fmt:v=>(v*100).toFixed(1)+'%',inv:false},
+    {key:'rentOp',lbl:'Rentabilidad Operativa',val:d.rentOp,fmt:v=>(v*100).toFixed(1)+'%',inv:false},
+    {key:'rentNeta',lbl:'Rentabilidad Neta',val:d.rentNeta,fmt:v=>(v*100).toFixed(1)+'%',inv:false},
+    {key:'rc',lbl:'Razón Corriente',val:d.rc,fmt:v=>v!==null?v.toFixed(2)+'x':'—',inv:false},
+    {key:'ende',lbl:'Endeudamiento',val:d.ende,fmt:v=>v!==null?(v*100).toFixed(1)+'%':'—',inv:true},
+    {key:'roe',lbl:'ROE',val:d.roe,fmt:v=>v!==null?(v*100).toFixed(1)+'%':'—',inv:false},
+    {key:'roa',lbl:'ROA',val:d.roa,fmt:v=>v!==null?(v*100).toFixed(1)+'%':'—',inv:false},
+    {key:'gao',lbl:'GAO',val:d.gao,fmt:v=>v.toFixed(2)+'x',inv:true},
+    {key:'gaf',lbl:'GAF',val:d.gaf,fmt:v=>v.toFixed(2)+'x',inv:true},
+  ];
+  const rows=metrics.map(m=>{
+    const bRange=b[m.key];
+    if(!bRange||m.val===null)return`<div class="bm-full-row"><span class="bm-lbl">${m.lbl}</span><div class="bm-bar-wrap"><div class="bm-bar-range" style="left:20%;width:40%"></div></div><span class="bm-sector" style="text-align:center">—</span><span class="bm-empresa" style="color:#2a2a2a">—</span><span></span></div>`;
+    const lo=bRange[0],hi=bRange[1];
+    const isInv=m.inv;
+    const mn=Math.min(lo,hi)*0.5,mx=Math.max(lo,hi)*1.8;
+    const rangL=Math.max(0,Math.min(95,(Math.min(lo,hi)-mn)/(mx-mn)*100));
+    const rangW=Math.max(5,Math.min(95,(Math.abs(hi-lo))/(mx-mn)*100));
+    const valPct=Math.max(2,Math.min(98,(m.val-mn)/(mx-mn)*100));
+    const above=isInv?(m.val<=Math.min(lo,hi)):(m.val>=Math.max(lo,hi));
+    const below=isInv?(m.val>=Math.max(lo,hi)):(m.val<=Math.min(lo,hi));
+    const c=above?'#16a34a':below?'#dc2626':'#d97706';
+    const loFmt=m.key.includes('Pct')||m.key==='rentOp'||m.key==='rentNeta'||m.key==='ende'||m.key==='roe'||m.key==='roa'?(lo*100).toFixed(0)+'%':lo.toFixed(1)+'x';
+    const hiFmt=m.key.includes('Pct')||m.key==='rentOp'||m.key==='rentNeta'||m.key==='ende'||m.key==='roe'||m.key==='roa'?(hi*100).toFixed(0)+'%':hi.toFixed(1)+'x';
+    return`<div class="bm-full-row"><span class="bm-lbl">${m.lbl}</span>
+      <div class="bm-bar-wrap">
+        <div class="bm-bar-range" style="left:${rangL.toFixed(1)}%;width:${rangW.toFixed(1)}%;opacity:0.5"></div>
+        <div class="bm-bar-val" style="left:${valPct.toFixed(1)}%;background:${c}"></div>
+      </div>
+      <span class="bm-sector" style="text-align:center;color:#444">${loFmt}–${hiFmt}</span>
+      <span class="bm-empresa" style="color:${c}">${m.fmt(m.val)}</span>
+      <span style="font-size:10px;font-weight:700;color:${c}">${above?'✓ OK':below?'✗ Bajo':'~ Rango'}</span>
+    </div>`;
+  }).join('');
+  return`<div class="card analista-only">${sec('ti-chart-bar','Benchmarking Sectorial — '+s+' Ecuador (SCVS/referencial)')}
+    <div class="bm-full">
+      <div class="bm-full-hdr"><span>Indicador</span><span style="text-align:center">Posición vs. sector</span><span style="text-align:center">Rango sector</span><span style="text-align:center">Empresa</span><span style="text-align:center">Estado</span></div>
+      ${rows}
+    </div>
+    <div style="margin-top:8px;font-size:9px;color:#222;line-height:1.6">Rango sectorial basado en promedios referenciales de PYMEs ecuatorianas por sector. Fuente: SCVS, SRI y estudios sectoriales. <span style="color:#F97316">Punto naranja = valor de la empresa.</span> Barra azul = rango normal del sector.</div>
+  </div>`;
+}
+
+// ── TREND CHARTS (v4 pt2) ─────────────────────────────────────
+function trendChartsBlock(d){
+  if(!d.pvV||d.pvV===0)return`<div class="card analista-only" style="text-align:center;padding:24px"><i class="ti ti-chart-bar" style="font-size:24px;color:#1a1a1a;display:block;margin-bottom:8px"></i><div style="font-size:10px;color:#2a2a2a">Ingresa datos del período anterior (CV Ant. y CF Ant.) para activar las gráficas de tendencia</div></div>`;
+  return`<div class="card analista-only">${sec('ti-chart-dots-3','Gráficas de Tendencia — Período Anterior vs Actual')}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div>
+        <div style="font-size:8px;text-transform:uppercase;letter-spacing:0.1em;color:#333;font-family:'Montserrat',sans-serif;font-weight:700;margin-bottom:6px">Ventas vs UAII</div>
+        <div class="chart-wrap-sm"><canvas id="trend-bar-c"></canvas></div>
+      </div>
+      <div>
+        <div style="font-size:8px;text-transform:uppercase;letter-spacing:0.1em;color:#333;font-family:'Montserrat',sans-serif;font-weight:700;margin-bottom:6px">Rentabilidad Comparativa (%)</div>
+        <div class="chart-wrap-sm"><canvas id="trend-line-c"></canvas></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderTrendCharts(d){
+  if(!d.pvV||d.pvV===0)return;
+  const pvRentOp=d.pvRentOp||0;
+  const pvMcPct=d.pvMcPct||0;
+  // Estimate pvRentNeta: pvUAII - intereses estimados * (1-tasa) / pvV
+  const pvRentNeta=d.pvV>0&&d.pvUAII>0?Math.max(0,(d.pvUAII-d.int)*(1-d.tasa)-d.dp)/d.pvV:0;
+  setTimeout(()=>{
+    const cb=document.getElementById('trend-bar-c');
+    if(cb&&typeof Chart!=='undefined'){
+      if(trendChart){trendChart.destroy();trendChart=null;}
+      trendChart=new Chart(cb,{type:'bar',data:{
+        labels:['Período Ant.','Período Act.'],
+        datasets:[
+          {label:'Ventas',data:[d.pvV,d.v],backgroundColor:['rgba(30,58,92,0.7)','rgba(30,58,92,1)'],borderColor:'#0b0b0b',borderWidth:1,borderRadius:4},
+          {label:'UAII',data:[d.pvUAII,d.uaii],backgroundColor:['rgba(249,115,22,0.5)','rgba(249,115,22,0.9)'],borderColor:'#0b0b0b',borderWidth:1,borderRadius:4}
+        ]
+      },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#444',font:{size:9}}}},scales:{x:{grid:{color:'#141414'},ticks:{color:'#444',font:{size:9}}},y:{grid:{color:'#141414'},ticks:{color:'#444',callback:v=>'$'+fmt(v),font:{size:9}}}}}});
+    }
+    const cl=document.getElementById('trend-line-c');
+    if(cl&&typeof Chart!=='undefined'){
+      if(radarChart){radarChart.destroy();radarChart=null;}
+      radarChart=new Chart(cl,{type:'bar',data:{
+        labels:['Rent. Operativa','Rent. Neta','Margen Contrib.'],
+        datasets:[
+          {label:'Anterior',data:[(pvRentOp*100).toFixed(2),(pvRentNeta*100).toFixed(2),(pvMcPct*100).toFixed(2)],backgroundColor:'rgba(30,58,92,0.7)',borderRadius:4},
+          {label:'Actual',data:[(d.rentOp*100).toFixed(2),(d.rentNeta*100).toFixed(2),(d.mcPct*100).toFixed(2)],backgroundColor:'rgba(249,115,22,0.8)',borderRadius:4}
+        ]
+      },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#444',font:{size:9}}}},scales:{x:{grid:{color:'#141414'},ticks:{color:'#444',font:{size:9}}},y:{grid:{color:'#141414'},ticks:{color:'#444',callback:v=>parseFloat(v).toFixed(1)+'%',font:{size:9}}}}}});
+    }
+  },120);
+}
+
+// ── PDF COVER (v4 pt2) ────────────────────────────────────────
+function printPDF(){
+  if(!gd){alert('Primero calcula los datos de la empresa.');return;}
+  const d=gd;
+  const cover=document.getElementById('pdf-cover');
+  if(cover){
+    document.getElementById('pdf-empresa').textContent=d.empresa;
+    document.getElementById('pdf-periodo').textContent=d.periodo;
+    document.getElementById('pdf-sector').textContent=getSector();
+    document.getElementById('pdf-analista').textContent=document.getElementById('analista')?.value||'Fyntrum';
+    document.getElementById('pdf-fecha').textContent=new Date().toLocaleDateString('es-EC',{year:'numeric',month:'long',day:'numeric'});
+    document.getElementById('pdf-score').textContent=calcScore(d)+'/100';
+    document.getElementById('pdf-grade').textContent=scoreGrade(calcScore(d));
+    document.getElementById('pdf-ventas').textContent='$'+fmt(d.v);
+    document.getElementById('pdf-uaii').textContent='$'+fmt(d.uaii);
+    document.getElementById('pdf-un').textContent='$'+fmt(d.un);
+    document.getElementById('pdf-wacc').textContent=d.wacc>0?(d.wacc*100).toFixed(2)+'%':'—';
+    document.getElementById('pdf-eva').textContent=d.eva!==null?'$'+fmt(d.eva):'—';
+    document.getElementById('pdf-svc').textContent=svc==='credit'?'Viabilidad Crediticia':svc==='consult'?'Consultoría Financiera':svc==='valuation'?'Valoración de Empresa':'CFO Externo';
+  }
+  window.print();
+}
+
+// ── NIIF Alert Builder (v4) ───────────────────────────────────
+function buildNiifAlerts(d){
+  const alerts=[];
+  // NIC 36 — Deterioro del valor de activos
+  if(d.roa!==null&&d.roa<0)alerts.push({norm:'NIC 36 — Deterioro de Activos',color:'#dc2626',status:'⚠ ALERTA',desc:'El ROA negativo puede indicar activos que no generan valor. Se requiere prueba de deterioro (impairment test) sobre los activos de la empresa.'});
+  else if(d.roa!==null&&d.roa<0.03)alerts.push({norm:'NIC 36 — Deterioro de Activos',color:'#d97706',status:'● REVISAR',desc:'ROA muy bajo. Evaluar si algún activo ha perdido valor recuperable y debe reconocerse deterioro en los estados financieros.'});
+  else alerts.push({norm:'NIC 36 — Deterioro de Activos',color:'#16a34a',status:'✓ SIN ALERTA',desc:'ROA dentro de rangos normales. No se evidencian señales de deterioro masivo de activos.'});
+
+  // NIC 12 — Impuesto a las ganancias (diferido)
+  if(d.tasa!==0.25)alerts.push({norm:'NIC 12 — Impuestos Diferidos',color:'#d97706',status:'● REVISAR',desc:'La tasa impositiva ingresada difiere del 25% estándar Ecuador. Verificar si existen diferencias temporarias que generen activos/pasivos por impuesto diferido bajo NIC 12.'});
+  else alerts.push({norm:'NIC 12 — Impuestos Diferidos',color:'#16a34a',status:'✓ CONFORME',desc:'Tasa impositiva al 25% según LRTI Ecuador. Revisar diferencias temporarias entre base contable (NIIF) y base fiscal (SRI) que puedan generar impuesto diferido.'});
+
+  // NIC 16 — Propiedad, Planta y Equipo (Depreciación)
+  if(d.deprec===0&&d.activos>50000)alerts.push({norm:'NIC 16 — Propiedad, Planta y Equipo',color:'#d97706',status:'● REVISAR',desc:'Sin depreciación registrada con activos significativos. NIC 16 exige depreciación sistemática de activos fijos. Verificar si se está aplicando correctamente el método de depreciación.'});
+  else alerts.push({norm:'NIC 16 — Propiedad, Planta y Equipo',color:'#16a34a',status:'✓ CONFORME',desc:'Depreciación registrada. Verificar que el método aplicado (lineal, unidades de producción) sea consistente con NIC 16 y adecuado para la naturaleza de los activos.'});
+
+  // NIC 1 — Empresa en marcha (going concern)
+  if(d.uaii<0||d.un<0)alerts.push({norm:'NIC 1 — Empresa en Marcha',color:'#dc2626',status:'⚠ ALERTA CRÍTICA',desc:'Resultados negativos plantean dudas sobre la continuidad operativa. NIC 1 exige que la administración evalúe la capacidad de continuar como empresa en funcionamiento y revele cualquier incertidumbre material.'});
+  else if(d.ebitda<d.int*1.2)alerts.push({norm:'NIC 1 — Empresa en Marcha',color:'#d97706',status:'● REVISAR',desc:'EBITDA cercano a los intereses. Monitorear capacidad de servicio de deuda para asegurar continuidad operativa bajo NIC 1.'});
+  else alerts.push({norm:'NIC 1 — Empresa en Marcha',color:'#16a34a',status:'✓ CONFORME',desc:'Los resultados positivos soportan la hipótesis de empresa en marcha conforme a NIC 1.'});
+
+  // NIIF 9 — Instrumentos Financieros (deuda)
+  if(d.ende!==null&&d.ende>0.7)alerts.push({norm:'NIIF 9 — Instrumentos Financieros',color:'#dc2626',status:'⚠ ALERTA',desc:'Endeudamiento superior al 70%. Los pasivos financieros deben clasificarse y medirse correctamente bajo NIIF 9 (costo amortizado o valor razonable). Revisar tratamiento contable de la deuda.'});
+  else if(d.int>0)alerts.push({norm:'NIIF 9 — Instrumentos Financieros',color:'#d97706',status:'● VERIFICAR',desc:'Intereses registrados. Asegurarse de que los instrumentos de deuda estén clasificados correctamente bajo NIIF 9 y se aplique la tasa de interés efectiva para el reconocimiento de intereses.'});
+  else alerts.push({norm:'NIIF 9 — Instrumentos Financieros',color:'#16a34a',status:'✓ SIN ALERTA',desc:'Sin indicadores de riesgo elevado en instrumentos financieros. Mantener política de clasificación y medición según NIIF 9.'});
+
+  // NIC 19 — Beneficios a empleados (referencia)
+  alerts.push({norm:'NIC 19 — Beneficios a Empleados',color:'#7eb8ff',status:'◈ REFERENCIA',desc:'NIC 19 exige reconocer beneficios como fondos de reserva, vacaciones y jubilación patronal (obligatoria en Ecuador desde los 25 años de servicio). Verificar provisiones actuariales.'});
+
+  // EVA — Valor económico
+  if(d.eva!==null&&d.eva<0)alerts.push({norm:'EVA — Destrucción de Valor',color:'#dc2626',status:'⚠ ALERTA',desc:'EVA negativo: la empresa tiene utilidad contable pero destruye valor económico al no superar su costo de capital (WACC). Esto impacta el valor real de la empresa para sus accionistas.'});
+  else if(d.eva!==null&&d.eva>0)alerts.push({norm:'EVA — Creación de Valor',color:'#16a34a',status:'✓ POSITIVO',desc:'EVA positivo: la empresa supera su costo de capital y genera valor económico real para los accionistas, más allá de la utilidad contable.'});
+
+  return alerts;
+}
+
+// ── WACC HTML Block (v4) ─────────────────────────────────────
+function waccBlock(d){
+  if(!d.wacc||d.TV===0)return`<div class="no-data"><i class="ti ti-calculator-off" style="font-size:18px;color:#222"></i><div class="no-data-txt">Ingresa datos de Patrimonio y Costo de Capital para calcular WACC</div></div>`;
+  const eW=d.TV>0?((d.E/d.TV)*100).toFixed(1):0;
+  const dW=d.TV>0?((d.D/d.TV)*100).toFixed(1):0;
+  const keColor=d.ke>0.2?'#dc2626':d.ke>0.12?'#d97706':'#16a34a';
+  const waccColor=d.wacc>0.18?'#dc2626':d.wacc>0.12?'#d97706':'#16a34a';
+  const spread=d.roic!==null?d.roic-d.wacc:null;
+  return`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <div class="capm-eq" style="margin-bottom:10px">
+        Ke = ${(d.rf*100).toFixed(1)}% + <span>${d.beta.toFixed(2)}</span> × (${(d.rm*100).toFixed(1)}% − ${(d.rf*100).toFixed(1)}%)<br>
+        <span>Ke = ${(d.ke*100).toFixed(2)}%</span>
+      </div>
+      <div class="capm-eq">
+        WACC = Ke×(E/V) + Kd×(1−T)×(D/V)<br>
+        WACC = ${(d.ke*100).toFixed(1)}%×${eW}% + ${(d.kdPct*100).toFixed(1)}%×${(1-d.tasa).toFixed(2)}×${dW}%<br>
+        <span>WACC = ${(d.wacc*100).toFixed(2)}%</span>
+      </div>
+    </div>
+    <div class="wacc-breakdown">
+      <div class="wb-row"><span class="wb-lbl">Tasa libre de riesgo (Rf)</span><span class="wb-val" style="color:#7eb8ff">${(d.rf*100).toFixed(2)}%</span></div>
+      <div class="wb-row"><span class="wb-lbl">Beta (β)</span><span class="wb-val" style="color:#7eb8ff">${d.beta.toFixed(2)}</span></div>
+      <div class="wb-row"><span class="wb-lbl">Prima de mercado (Rm−Rf)</span><span class="wb-val" style="color:#7eb8ff">${(d.primaMercado*100).toFixed(2)}%</span></div>
+      <div class="wb-row"><span class="wb-lbl">Costo del patrimonio (Ke)</span><span class="wb-val" style="color:${keColor}">${(d.ke*100).toFixed(2)}%</span></div>
+      <div class="wb-row"><span class="wb-lbl">Costo de deuda Kd×(1−T)</span><span class="wb-val" style="color:#7eb8ff">${(d.kdPct*(1-d.tasa)*100).toFixed(2)}%</span></div>
+      <div class="wb-row"><span class="wb-lbl">Peso Patrimonio E/V</span><span class="wb-val">${eW}%</span></div>
+      <div class="wb-row"><span class="wb-lbl">Peso Deuda D/V</span><span class="wb-val">${dW}%</span></div>
+      <div class="wb-row" style="border-top:2px solid #222;margin-top:4px;padding-top:8px"><span class="wb-lbl" style="color:#e2e0da;font-weight:700">WACC</span><span style="font-size:18px;font-weight:800;font-family:'Montserrat',sans-serif;color:${waccColor}">${(d.wacc*100).toFixed(2)}%</span></div>
+      ${spread!==null?`<div class="wb-row"><span class="wb-lbl" style="color:${spread>=0?'#16a34a':'#dc2626'}">ROIC − WACC (Spread)</span><span class="wb-val" style="color:${spread>=0?'#16a34a':'#dc2626'}">${spread>=0?'+':''}${(spread*100).toFixed(2)}%</span></div>`:''}
+    </div>
+  </div>`;
+}
+
+// ── EVA HTML Block (v4) ──────────────────────────────────────
+function evaBlock(d){
+  if(d.eva===null)return`<div class="no-data"><i class="ti ti-minus" style="font-size:18px;color:#222"></i><div class="no-data-txt">Completa los datos de WACC y Capital Invertido para calcular EVA</div></div>`;
+  const c=d.eva>=0?'#16a34a':'#dc2626';
+  const roicC=d.roic!==null?(d.roic>d.wacc?'#16a34a':d.roic>d.wacc*0.7?'#d97706':'#dc2626'):'#555';
+  return`<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:start">
+    <div class="mc" style="border-top:2px solid ${c};text-align:center;padding:20px 12px">
+      <div class="mc-name" style="text-align:center;margin-bottom:10px">EVA — Valor Económico Agregado</div>
+      <div class="eva-big" style="color:${c}">${d.eva>=0?'+':''}$${fmt(d.eva)}</div>
+      <div class="mc-sig" style="justify-content:center"><div class="mc-dot" style="background:${c};box-shadow:0 0 5px ${c}55"></div><span class="mc-siglbl" style="color:${c}">${d.eva>=0?'▲ Crea valor':'▼ Destruye valor'}</span></div>
+      <div class="mc-desc" style="text-align:left">EVA = NOPAT − (WACC × Capital Invertido)<br>EVA = $${fmt(d.nopat)} − (${(d.wacc*100).toFixed(2)}% × $${fmt(d.capInv)})</div>
+    </div>
+    <div class="mc" style="border-top:2px solid ${roicC}">
+      <div class="mc-name">ROIC — Retorno sobre Capital</div>
+      <div class="mc-val" style="color:${roicC}">${d.roic!==null?pct(d.roic):'—'}</div>
+      <div class="mc-sig"><div class="mc-dot" style="background:${roicC}"></div><span class="mc-siglbl" style="color:${roicC}">${d.roic!==null?(d.roic>d.wacc?'▲ Supera WACC':'▼ Bajo el WACC'):'—'}</span></div>
+      <div class="mc-desc">NOPAT / Capital Invertido. <b>Si ROIC &gt; WACC</b> la empresa genera riqueza real. NOPAT = UAII × (1 − Tasa).</div>
+    </div>
+    <div class="mc" style="border-top:2px solid #7eb8ff">
+      <div class="mc-name">NOPAT — Utilidad Operativa Neta</div>
+      <div class="mc-val" style="color:#7eb8ff">$${fmt(d.nopat)}</div>
+      <div class="mc-sig"><div class="mc-dot" style="background:#7eb8ff"></div><span class="mc-siglbl" style="color:#7eb8ff">● Base de cálculo</span></div>
+      <div class="mc-desc">UAII × (1 − ${(d.tasa*100).toFixed(0)}%) = $${fmt(d.nopat)}. Es la utilidad operativa libre de impuestos, base del EVA y el DCF.</div>
+    </div>
+  </div>`;
+}
+
+// ── DCF HTML Block (v4) ──────────────────────────────────────
+function dcfBlock(d){
+  if(!d.dcfTotal||d.fcfs.every(f=>f===0))return`<div class="no-data"><i class="ti ti-chart-line" style="font-size:18px;color:#222"></i><div class="no-data-txt">Ingresa los Flujos de Caja Libres proyectados y el WACC para valorar la empresa</div></div>`;
+  const c=d.dcfTotal>0?'#16a34a':'#dc2626';
+  const rows=d.fcfs.map((f,i)=>`<div class="dcf-yr-row"><span class="dcf-yr">AÑO ${i+1}</span><span class="dcf-fcf">$${fmt(f)}</span><span style="color:#555;font-size:9px">÷ (1+${(d.wacc*100).toFixed(1)}%)^${i+1}</span><span class="dcf-pv">$${fmt(d.fcfPVs[i]||0)}</span></div>`).join('');
+  const pvPct=d.dcfTotal>0?(d.dcfPV/d.dcfTotal*100).toFixed(0):0;
+  const tvPct=d.dcfTotal>0?(d.dcfTV/d.dcfTotal*100).toFixed(0):0;
+  return`<div style="display:grid;grid-template-columns:1fr 260px;gap:14px;align-items:start">
+    <div>
+      <div class="dcf-hdr" style="display:grid;grid-template-columns:60px 1fr 1fr 1fr;gap:0;padding:7px 10px">
+        <span>Año</span><span>FCF</span><span>Factor desc.</span><span style="color:#F97316">Valor Presente</span>
+      </div>
+      <div class="dcf-body">${rows}
+        <div class="dcf-yr-row" style="background:rgba(27,58,92,0.15)"><span class="dcf-yr">VT</span><span class="dcf-fcf" style="color:#7eb8ff">Perpetuidad</span><span style="color:#555;font-size:9px">g=${(d.gperp*100).toFixed(1)}%</span><span class="dcf-pv">$${fmt(d.dcfTV)}</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="mc" style="border-top:2px solid ${c};margin-bottom:8px">
+        <div class="mc-name">Valor Empresa (Enterprise Value)</div>
+        <div class="mc-val" style="color:${c}">$${fmt(d.dcfTotal)}</div>
+        <div class="mc-desc">∑VP FCF: <b>$${fmt(d.dcfPV)}</b> (${pvPct}%)<br>Valor Terminal: <b>$${fmt(d.dcfTV)}</b> (${tvPct}%)<br>WACC usado: ${(d.wacc*100).toFixed(2)}%</div>
+      </div>
+      ${d.dcfPerAccion>0?`<div class="mc" style="border-top:2px solid #7eb8ff">
+        <div class="mc-name">Valor por Acción</div>
+        <div class="mc-val" style="color:#7eb8ff">$${d.dcfPerAccion.toFixed(2)}</div>
+        <div class="mc-desc">${fmt(d.accVal)} acciones en circulación.<br>Enterprise Value / N° Acciones.</div>
+      </div>`:''}
+    </div>
+  </div>`;
+}
+
+// ── NIIF HTML Block (v4) ─────────────────────────────────────
+function niifBlock(d){
+  if(!d.niifAlerts||!d.niifAlerts.length)return'';
+  const items=d.niifAlerts.map(a=>`<div class="niif-card" style="border-left:3px solid ${a.color}">
+    <div class="niif-dot" style="background:${a.color};box-shadow:0 0 5px ${a.color}55"></div>
+    <div class="niif-body">
+      <div class="niif-norm" style="color:${a.color}">${a.norm}</div>
+      <div class="niif-status" style="color:${a.color}">${a.status}</div>
+      <div class="niif-desc">${a.desc}</div>
+    </div>
+  </div>`).join('');
+  return`<div class="card analista-only">${sec('ti-scale','Alertas NIIF Ecuador — Cumplimiento Regulatorio')}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${items}</div>
+    <div style="margin-top:10px;padding:10px;background:#0d0d0d;border:1px solid #1a1a1a;border-radius:5px;font-size:9px;color:#2a2a2a;line-height:1.6">
+      <span style="color:#F97316;font-weight:700;font-family:'Montserrat',sans-serif">⚠ Nota:</span> Este análisis de NIIF es orientativo basado en indicadores financieros. Para un dictamen formal de cumplimiento NIIF ante la SCVS, consulta a un auditor externo certificado.
+    </div>
+  </div>`;
+}
+
+// ── renderValuation (v4) ─────────────────────────────────────
+function renderValuation(el){
+  const d=gd;
+  el.innerHTML=`
+  ${execSummary(d)}
+  <div class="card analista-only">${sec('ti-percentage','WACC & CAPM — Costo de Capital Ponderado')}
+    ${waccBlock(d)}
+  </div>
+  <div class="card analista-only">${sec('ti-diamond','EVA — Valor Económico Agregado')}
+    ${evaBlock(d)}
+  </div>
+  <div class="card analista-only">${sec('ti-chart-line','DCF — Valoración por Flujos Descontados')}
+    ${dcfBlock(d)}
+  </div>
+  ${bmFullPanel(d)}
+  ${niifBlock(d)}
+  ${aiBlock('consult')}`;
+}
+
 // ── AI Assistant ──────────────────────────────────────────────
 function toggleAsst(open){
   asstOpen=open;
@@ -791,7 +1307,10 @@ function toggleAsst(open){
 
 function buildCtx(){
   if(!gd)return'No hay datos.';const d=gd;
-  return`Empresa: ${d.empresa}|Período: ${d.periodo}|Sector: ${getSector()}\nVentas:$${d.v?.toFixed(0)}|MC:${(d.mcPct*100)?.toFixed(1)}%|UAII:$${d.uaii?.toFixed(0)}|UN:$${d.un?.toFixed(0)}\nGAO:${d.gao?.toFixed(2)}x|GAF:${d.gaf?.toFixed(2)}x|GAT:${d.gat?.toFixed(2)}x\nRentOp:${(d.rentOp*100)?.toFixed(2)}%|RentNeta:${(d.rentNeta*100)?.toFixed(2)}%|EBITDA:$${d.ebitda?.toFixed(0)}\n${d.rc!==null?'RC:'+d.rc?.toFixed(2)+'x':''} ${d.ende!==null?'Endeudamiento:'+(d.ende*100)?.toFixed(1)+'%':''} ${d.dscr!==null?'DSCR:'+d.dscr?.toFixed(2)+'x':''}\nScore salud financiera: ${calcScore(d)}/100 (${scoreGrade(calcScore(d))})|Servicio: ${svc}`;
+  const waccLine=d.wacc>0?`\nWACC:${(d.wacc*100).toFixed(2)}%|Ke(CAPM):${(d.ke*100).toFixed(2)}%|Beta:${d.beta?.toFixed(2)}|Kd:${(d.kdPct*100).toFixed(2)}%`:'';
+  const evaLine=d.eva!==null?`\nEVA:$${d.eva?.toFixed(0)}|ROIC:${(d.roic*100)?.toFixed(2)}%|NOPAT:$${d.nopat?.toFixed(0)}|Spread ROIC-WACC:${((d.roic-d.wacc)*100)?.toFixed(2)}%`:'';
+  const dcfLine=d.dcfTotal>0?`\nValor Empresa(DCF):$${d.dcfTotal?.toFixed(0)}|VP FCFs:$${d.dcfPV?.toFixed(0)}|Valor Terminal:$${d.dcfTV?.toFixed(0)}|Valor/Acción:$${d.dcfPerAccion?.toFixed(2)}`:'';
+  return`Empresa: ${d.empresa}|Período: ${d.periodo}|Sector: ${getSector()}\nVentas:$${d.v?.toFixed(0)}|MC:${(d.mcPct*100)?.toFixed(1)}%|UAII:$${d.uaii?.toFixed(0)}|UN:$${d.un?.toFixed(0)}\nGAO:${d.gao?.toFixed(2)}x|GAF:${d.gaf?.toFixed(2)}x|GAT:${d.gat?.toFixed(2)}x\nRentOp:${(d.rentOp*100)?.toFixed(2)}%|RentNeta:${(d.rentNeta*100)?.toFixed(2)}%|EBITDA:$${d.ebitda?.toFixed(0)}\n${d.rc!==null?'RC:'+d.rc?.toFixed(2)+'x':''} ${d.ende!==null?'Endeudamiento:'+(d.ende*100)?.toFixed(1)+'%':''} ${d.dscr!==null?'DSCR:'+d.dscr?.toFixed(2)+'x':''}${waccLine}${evaLine}${dcfLine}\nScore salud financiera: ${calcScore(d)}/100 (${scoreGrade(calcScore(d))})|Servicio: ${svc}`;
 }
 
 async function autoInterpret(){
@@ -842,9 +1361,10 @@ async function genAI(type){
   if(btn){btn.disabled=true;btn.style.opacity='0.4';btn.innerHTML='<i class="ti ti-loader"></i>Generando...';}
   if(txt){txt.textContent='Generando informe...';txt.style.color='#3a3a3a';}
   const P={
-    credit:`Eres consultor financiero senior de Fyntrum. Informe ejecutivo de viabilidad crediticia en español (máx 280 palabras). ${buildCtx()}. Estructura: 1)Resumen ejecutivo 2)Evaluación de capacidad de pago 3)Fortalezas y riesgos 4)Recomendación crediticia.`,
-    consult:`Eres consultor financiero senior de Fyntrum. Informe ejecutivo de consultoría financiera en español (máx 300 palabras). ${buildCtx()}. Estructura: 1)Resumen ejecutivo 2)Análisis de rentabilidad 3)Riesgo y apalancamiento 4)Fortalezas 5)Alertas y recomendaciones.`,
-    cfo:`Eres CFO externo de ${d.empresa} via Fyntrum. Informe mensual de gestión en español (máx 260 palabras). ${buildCtx()}. Estructura: 1)Resumen del período 2)KPIs en alerta 3)KPIs óptimos 4)Tres acciones concretas para el próximo período.`
+    credit:`Eres consultor financiero senior de Fyntrum Ecuador. Informe ejecutivo de viabilidad crediticia en español (máx 280 palabras). ${buildCtx()}. Estructura: 1)Resumen ejecutivo 2)Evaluación de capacidad de pago 3)Fortalezas y riesgos 4)Recomendación crediticia.`,
+    consult:`Eres consultor financiero senior de Fyntrum Ecuador. Informe ejecutivo de consultoría financiera en español (máx 320 palabras). ${buildCtx()}. Estructura: 1)Resumen ejecutivo 2)Análisis de rentabilidad 3)Costo de capital y EVA 4)Alertas NIIF 5)Recomendaciones estratégicas.`,
+    cfo:`Eres CFO externo de ${d.empresa} via Fyntrum Ecuador. Informe mensual de gestión en español (máx 260 palabras). ${buildCtx()}. Estructura: 1)Resumen del período 2)KPIs en alerta 3)KPIs óptimos 4)Tres acciones concretas para el próximo período.`,
+    valuation:`Eres consultor de valoración financiera de Fyntrum Ecuador. Informe ejecutivo de valoración en español (máx 320 palabras). ${buildCtx()}. Estructura: 1)Resumen de valoración 2)Análisis del WACC y costo de capital 3)Interpretación del EVA 4)Valoración DCF y conclusión de valor 5)Recomendaciones para el propietario.`
   };
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:800,messages:[{role:'user',content:P[type]}]})});
@@ -866,6 +1386,8 @@ function scrollMsgs(){const m=document.getElementById('asst-msgs');if(m)m.scroll
 function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
 
 // ── Save / Export / Import ────────────────────────────────────
+const V4_FIELDS=['ventas','cv','cf','intereses','tasa','divpref','deprec','acciones','activos','patrimonio','actcorr','pascorr','empresa','periodo','sector','analista','credmonto','credtasa','credplazo','deudaactual','pv_ventas','pv_cv','pv_cf','pv_uaii','rf','beta','rm','kd_input','fcf1','fcf2','fcf3','fcf4','fcf5','gperp','capinv','acc_val'];
+
 function saveAnalysis(btn){
   if(!gd)return;
   histData.unshift({empresa:gd.empresa,periodo:gd.periodo,ts:new Date().toLocaleDateString('es-EC'),service:svc});
@@ -873,7 +1395,7 @@ function saveAnalysis(btn){
   const el=document.getElementById('hist-list');
   if(el)el.innerHTML=histData.map(h=>`<div class="hist-item" onclick="loadSaved('${h.empresa}')"><div class="hist-name">${h.empresa}</div><div class="hist-meta">${h.periodo} · ${h.ts}</div></div>`).join('');
   const inputs={};
-  ['ventas','cv','cf','intereses','tasa','divpref','deprec','acciones','activos','patrimonio','actcorr','pascorr','empresa','periodo','sector','analista','credmonto','credtasa','credplazo','deudaactual','pv_ventas','pv_cv','pv_cf','pv_uaii'].forEach(id=>{const e=document.getElementById(id);if(e)inputs[id]=e.value;});
+  V4_FIELDS.forEach(id=>{const e=document.getElementById(id);if(e)inputs[id]=e.value;});
   try{localStorage.setItem('fyntrum_'+gd.empresa,JSON.stringify({inputs,service:svc}));}catch(e){}
   if(btn){const orig=btn.innerHTML;btn.innerHTML='<i class="ti ti-check"></i>Guardado';setTimeout(()=>btn.innerHTML=orig,1800);}
 }
@@ -884,8 +1406,8 @@ function loadSaved(empresa){
 
 function exportData(){
   const inputs={};
-  ['ventas','cv','cf','intereses','tasa','divpref','deprec','acciones','activos','patrimonio','actcorr','pascorr','empresa','periodo','sector','analista','credmonto','credtasa','credplazo','deudaactual','pv_ventas','pv_cv','pv_cf','pv_uaii'].forEach(id=>{const e=document.getElementById(id);if(e)inputs[id]=e.value;});
-  const blob=new Blob([JSON.stringify({source:'Fyntrum CFA v3.0',exportDate:new Date().toISOString(),service:svc,inputs},null,2)],{type:'application/json'});
+  V4_FIELDS.forEach(id=>{const e=document.getElementById(id);if(e)inputs[id]=e.value;});
+  const blob=new Blob([JSON.stringify({source:'Fyntrum CFA v4.0',exportDate:new Date().toISOString(),service:svc,inputs},null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`Fyntrum_${inputs.empresa||'cliente'}_${inputs.periodo||'analisis'}.json`;a.click();URL.revokeObjectURL(url);
 }
 
